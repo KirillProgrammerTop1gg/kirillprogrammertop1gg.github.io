@@ -1,43 +1,10 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Форма для отправки данных на почту</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
 </head>
-
 <body>
-
-    <h1>Форма для отправки данных на почту</h1>
-
-    <form action="https://formspree.io/1kvgxiaomi1711@gmail.com" method="POST">
-        <input type="email" name="email" placeholder="Ваш email">
-        <textarea name="message" placeholder="Сообщение"></textarea>
-        <button type="submit">Отправить</button>
-    </form>
-
-    <script>
-        document.querySelector('form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            var form = e.target;
-            var data = new FormData(form);
-            var xhr = new XMLHttpRequest();
-
-            xhr.open(form.method, form.action, true);
-            xhr.setRequestHeader('Accept', 'application/json');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState !== XMLHttpRequest.DONE) return;
-                if (xhr.status === 200) {
-                    form.reset();
-                    alert('Спасибо! Ваше сообщение отправлено.');
-                } else {
-                    alert('Извините, произошла ошибка. Пожалуйста, попробуйте ещё раз.');
-                }
-            };
-
-            xhr.send(data);
-        });
-    </script>
-
 </body>
-
 </html>
